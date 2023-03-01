@@ -13,14 +13,15 @@ model = tf.keras.models.Sequential()
 model.add(tf.keras.layers.Flatten(input_shape = (28, 28)))
 model.add(tf.keras.layers.Dense(units = 128, activation = tf.nn.relu))
 model.add(tf.keras.layers.Dense(units = 128, activation = tf.nn.relu))
+model.add(tf.keras.layers.Dense(units = 128, activation = tf.nn.relu))
 model.add(tf.keras.layers.Dense(units = 10, activation = tf.nn.softmax))
 
 model.compile(loss = "sparse_categorical_crossentropy", metrics = ["accuracy"])
 
-model.fit(x_train, y_train, epochs = 3)
+model.fit(x_train, y_train, epochs = 6)
 
 loss, accuracy = model.evaluate(x_test, y_test)
 print(accuracy)
 print(loss)
 
-model.save("mnist.model")
+model.save("mnist3l.model")
